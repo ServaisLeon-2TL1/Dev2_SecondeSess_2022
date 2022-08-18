@@ -19,4 +19,5 @@ class Terrain():
                 return ligne
 
     def reset(self):
+
         self.occupied_positions = {}

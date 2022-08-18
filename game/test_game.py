@@ -41,4 +41,26 @@ class TestTerrain(unittest.TestCase):
         game_.terrain.occupied_positions[(0, 0)] = stein
         self.assertTrue(game_.check_winner(stein))
 
-    
+    def test_default_not_win_p1_empty(self):
+        field = game.Terrain()
+        stein = field.players[0].symbol
+        self.assertFalse(field.check_winner(stein))
+
+    def test_default_not_win_p2_empty(self):
+        field = game.Terrain()
+        stein = field.players[1].symbol
+        self.assertFalse(field.check_winner(stein))
+
+    def test_default_vertical_not_win_p1_partial_1(self):
+        field = game.Terrain()
+        stein = field.players[0].symbol
+        field.terrain[(0, 3)] = stein
+        self.assertFalse(field.check_winner(stein))
+
+    def test_default_vertical_not_win_p1_partial_2(self):
+        field = game.Terrain()
+        stein = field.players[0].symbol
+        field.terrain[(0, 3)] = stein
+        field.terrain[(0, 2)] = stein
+        field.terrain[(0, 1)] = stein
+        self.assertFalse(field.check_winner(stein))
