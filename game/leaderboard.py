@@ -1,3 +1,4 @@
+
 import sqlite3
 
 class Leaderboard():
@@ -37,3 +38,6 @@ class Leaderboard():
 
         except:
             print("Database error, could not update value")
+
+    def name_exists(self, name):
+        return self.c.execute(f'''SELECT name FROM lboard WHERE name="{name}"''').fetchone() != None

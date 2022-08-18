@@ -14,7 +14,7 @@ class Game:
         self.terrain = terrain.Terrain(nombre_colonnes, nombre_lines)
         self.puissance = puissance
         self.players = [player.Player(pid, Game.SYMBOLS[pid - 1],
-            customize) for pid in range(1, nombre_jouers + 1)]
+            self.lb, customize) for pid in range(1, nombre_jouers + 1)]
 
     def printTerrain(self):
         for i in range(self.terrain.CELLULES):
